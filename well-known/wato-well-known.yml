@@ -1,0 +1,73 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of /.well-known/ on www.watolabs.com, docs.watolabs.com, mesh.watolabs.com
+notes: >-
+  mesh.watolabs.com is a Next.js app whose router returns a 200 HTML fallback for
+  unknown paths; only responses with a real (JSON/text) content type are recorded
+  as published documents. The OAuth authorization-server metadata (RFC 8414) and
+  OAuth protected-resource metadata (RFC 9728) are genuinely published and back
+  the MCP gateway's OAuth flow (WorkOS AuthKit issuer).
+hosts:
+- host: https://mesh.watolabs.com
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: wato-oauth-authorization-server.json
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    file: wato-oauth-protected-resource.json
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html
+    published: false
+    note: SPA HTML fallback, not a security.txt
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    published: false
+    note: SPA HTML fallback
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: text/html
+    published: false
+    note: SPA HTML fallback
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: text/html
+    published: false
+    note: SPA HTML fallback
+- host: https://www.watolabs.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://docs.watolabs.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain
+    file: ../llms/wato-llms.txt
+    note: not under /.well-known/ but part of the published discovery surface

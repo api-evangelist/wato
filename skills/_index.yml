@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: generated
+source: grounded in the published MCP tool surface (mcp/wato-mcp.yml, from https://docs.watolabs.com/docs/reference)
+skills:
+- file: wato-discover-and-run-tools.md
+  name: Discover and run approved connector tools
+  api: mcp/wato-mcp.yml
+  operations: [wato_get_usage_guide, wato_search_agent_context, mesh_search_tools, mesh_get_tool_schemas, mesh_execute_tool]
+- file: wato-memory-review-workflow.md
+  name: Propose and merge reviewed team memory
+  api: mcp/wato-mcp.yml
+  operations: [mesh_update_memory_branch_from_main, mesh_write_memory_file, mesh_patch_memory_file, mesh_submit_memory_branch_for_review, mesh_get_memory_proposal, mesh_merge_memory_proposal]
+- file: wato-author-and-publish-skill.md
+  name: Author and publish a Wato skill
+  api: mcp/wato-mcp.yml
+  operations: [wato_list_skills, wato_get_skill, wato_get_skill_file, wato_save_skill_draft, wato_publish_skill]
+- file: wato-build-automation-from-chat.md
+  name: Turn a chat into a reusable automation
+  api: mcp/wato-mcp.yml
+  operations: [wato_create_automation_from_chat, wato_get_automation_draft, wato_edit_automation_draft]
+- file: wato-live-dashboard.md
+  name: Publish a live dashboard artifact
+  api: mcp/wato-mcp.yml
+  operations: [wato_get_live_artifact_primitives, wato_bind_dashboard_view]

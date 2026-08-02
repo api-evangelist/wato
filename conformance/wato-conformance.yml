@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: derived
+source: well-known/wato-oauth-authorization-server.json + docs.watolabs.com
+standards:
+- id: mcp
+  conforms: true
+  evidence: remote MCP server over Streamable HTTP at https://mesh.watolabs.com/api/mcp (docs/connect-clients)
+- id: oauth2
+  conforms: true
+  evidence: authorization_code + refresh_token + device_code grants via WorkOS AuthKit authorization server
+- id: oauth2-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported [S256] in RFC 8414 metadata
+- id: rfc8414-authorization-server-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server published on mesh.watolabs.com (200, application/json)
+- id: rfc9728-protected-resource-metadata
+  conforms: true
+  evidence: /.well-known/oauth-protected-resource published for resource https://mesh.watolabs.com/api/mcp
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint published in authorization server metadata
+- id: rfc8628-device-authorization-grant
+  conforms: true
+  evidence: device_authorization_endpoint + urn:ietf:params:oauth:grant-type:device_code in metadata
+- id: oidc
+  conforms: true
+  evidence: openid/profile/email scopes_supported and jwks_uri published by the AuthKit issuer
+- id: scim
+  conforms: true
+  evidence: docs/security states enterprise deployments support SSO and SCIM (directory sync via WorkOS)
+- id: llms-txt
+  conforms: true
+  evidence: https://docs.watolabs.com/llms.txt (200, saved at llms/wato-llms.txt)
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: no security.txt on www/docs; mesh serves an HTML SPA fallback
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no REST error surface published; gateway speaks MCP JSON-RPC
+- id: openapi
+  conforms: false
+  evidence: no OpenAPI published; the API surface is the MCP gateway

@@ -1,8 +1,31 @@
 aid: wato
 name: Wato
-description: Wato is a company surfaced as a portfolio company of y-combinator and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Wato is the control point for AI agents at work — a governed, shared AI
+  workspace that gives teams reviewed memory, approved MCP connectors and tools,
+  versioned skills, cloud agent sessions, triggered automations, live artifacts
+  and dashboards, and full tool-call tracing, all exposed to Claude Code, Codex,
+  Cursor, and any MCP-compatible client through a single remote MCP gateway.
+  Login, SSO, and directory sync are handled by WorkOS; agents only ever see a
+  team's reviewed memory and approved tools, never raw credentials, and every
+  MCP call is recorded as an auditable trace. Wato is a Y Combinator (Spring
+  2026) company based in San Francisco.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://framerusercontent.com/images/oDm7nRGsCsNtN5bMfKuMpJdKzJg.png
 url: https://raw.githubusercontent.com/api-evangelist/wato/refs/heads/main/apis.yml
+humanURL: https://www.watolabs.com/
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,12 +34,102 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- MCP
+- Model Context Protocol
+- AI Agents
+- Agent Governance
+- Team Memory
+- Connectors
+- Agent Skills
+- Automation
+- Developer Tools
+- Y Combinator
+apis:
+- name: Wato MCP Gateway
+  description: >-
+    Wato exposes each team's reviewed memory and approved connector tools through
+    a single remote MCP (Model Context Protocol) gateway over Streamable HTTP with
+    OAuth. Any MCP-capable client (Claude Code, Codex, Cursor, or other remote MCP
+    clients) can read and draft memory, discover and run approved connector tools,
+    manage skills, and build automation drafts through the governed gateway.
+  humanURL: https://docs.watolabs.com/docs/connect-clients
+  baseURL: https://mesh.watolabs.com/api/mcp
+  tags:
+  - MCP
+  - Model Context Protocol
+  - AI Agents
+  properties:
+  - type: MCPServer
+    url: mcp/wato-mcp.yml
+  - type: Authentication
+    url: authentication/wato-authentication.yml
+  - type: OAuthScopes
+    url: scopes/wato-scopes.yml
+  - type: WellKnown
+    url: well-known/wato-well-known.yml
+  - type: Conventions
+    url: conventions/wato-conventions.yml
+  - type: Lifecycle
+    url: lifecycle/wato-lifecycle.yml
+  - type: Conformance
+    url: conformance/wato-conformance.yml
+  - type: Components
+    url: components/wato-components.yml
+  - type: AgentSkill
+    url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DeveloperPortal
+  url: https://docs.watolabs.com/
+- type: Documentation
+  url: https://docs.watolabs.com/docs
+- type: APIReference
+  url: https://docs.watolabs.com/docs/reference
+- type: GettingStarted
+  url: https://docs.watolabs.com/docs/getting-started
+- type: Quickstart
+  url: https://docs.watolabs.com/docs/quickstart-automation
+- type: Blog
+  url: https://blog.watolabs.com
+- type: SignUp
+  url: https://mesh.watolabs.com/onboarding
+- type: Pricing
+  url: https://docs.watolabs.com/docs/sign-up
+- type: TermsOfService
+  url: https://www.watolabs.com/tos
+- type: MCPServer
+  url: mcp/wato-mcp.yml
+- type: Authentication
+  url: authentication/wato-authentication.yml
+- type: OAuthScopes
+  url: scopes/wato-scopes.yml
+- type: WellKnown
+  url: well-known/wato-well-known.yml
+- type: Conventions
+  url: conventions/wato-conventions.yml
+- type: Lifecycle
+  url: lifecycle/wato-lifecycle.yml
+- type: Conformance
+  url: conformance/wato-conformance.yml
+- type: Components
+  url: components/wato-components.yml
+- type: DomainSecurity
+  url: security/wato-domain-security.yml
+- type: LLMsTxt
+  url: llms/wato-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Plans
+  url: plans/wato-plans.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1

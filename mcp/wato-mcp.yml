@@ -1,0 +1,87 @@
+generated: '2026-07-21'
+method: searched
+status: published
+source: https://docs.watolabs.com/docs/connect-clients
+docs:
+- https://docs.watolabs.com/docs/connect-clients
+- https://docs.watolabs.com/docs/reference
+server:
+  name: wato
+  transport: http            # MCP Streamable HTTP
+  url: https://mesh.watolabs.com/api/mcp
+  auth:
+    type: oauth2
+    flow: authorizationCode
+    pkce: S256
+    authorization_server: https://qualified-tree-19-staging.authkit.app   # WorkOS AuthKit (RFC 8414 metadata published)
+    protected_resource_metadata: https://mesh.watolabs.com/.well-known/oauth-protected-resource
+    dynamic_client_registration: true
+  team_scoping:
+    query_param: team          # e.g. https://mesh.watolabs.com/api/mcp?team=engineering
+    header: x-mesh-team        # alternative for clients that pass headers (Codex)
+clients:
+  claude_code: claude mcp add --transport http wato-engineering "https://mesh.watolabs.com/api/mcp?team=engineering"
+  codex: '[mcp_servers.wato-engineering] url = "https://mesh.watolabs.com/api/mcp" http_headers = { "x-mesh-team" = "engineering" } ; then: codex mcp login wato-engineering'
+  cursor: '{"mcpServers": {"wato-engineering": {"type": "http", "url": "https://mesh.watolabs.com/api/mcp?team=engineering"}}}'
+tools:
+# Orientation + governed connector gateway
+- name: wato_get_usage_guide
+  description: Returns team info, recommended calls, memory permissions, and best practices
+- name: mesh_search_tools
+  description: Searches available MCP tools by name, connector, description, regex, or schema
+- name: mesh_get_tool_schemas
+  description: Returns complete input schemas for specific connector tools
+- name: mesh_execute_tool
+  description: Executes an approved connector tool through the governed gateway
+- name: wato_search_agent_context
+  description: Searches rules, skills, plugins, and authorized memory summaries
+# Memory (reviewed team wiki with draft branch + proposal review)
+- name: mesh_search_memory
+  description: Searches Markdown files in the team's reviewed memory wiki
+- name: mesh_list_memory_files
+  description: Lists files and folders in the team's memory wiki
+- name: mesh_read_memory_file
+  description: Reads a specific Markdown memory file
+- name: mesh_patch_memory_file
+  description: Applies find-and-replace edits to a Markdown file in the draft branch
+- name: mesh_write_memory_file
+  description: Writes full contents of a Markdown file in the draft branch
+- name: mesh_update_memory_branch_from_main
+  description: Merges reviewed main memory into the draft branch
+- name: mesh_submit_memory_branch_for_review
+  description: Submits the draft branch as a memory proposal
+- name: mesh_list_memory_proposals
+  description: Lists pending memory proposals for the team
+- name: mesh_get_memory_proposal
+  description: Opens one pending proposal with metadata and diff
+- name: mesh_refresh_memory_proposal
+  description: Refreshes a pending proposal from reviewed main memory
+- name: mesh_merge_memory_proposal
+  description: Merges a clean proposal into reviewed memory
+- name: mesh_list_memory_changes
+  description: Lists recent memory changes and proposal history
+- name: mesh_get_memory_change
+  description: Fetches one memory change with before/after Markdown
+# Skills (versioned units of capability)
+- name: wato_list_skills
+  description: Lists published portable skills available to the team
+- name: wato_get_skill
+  description: Fetches one published skill by id or slug as Markdown
+- name: wato_get_skill_file
+  description: Fetches one bundled file (script, reference doc) by relative path
+- name: wato_save_skill_draft
+  description: Creates or updates a skill draft; can set bundled files
+- name: wato_publish_skill
+  description: Publishes a skill by id or slug
+# Automations
+- name: wato_create_automation_from_chat
+  description: Distills connector actions taken in a conversation into a reusable automation draft
+- name: wato_get_automation_draft
+  description: Reads draft steps in flow order with field tagging
+- name: wato_edit_automation_draft
+  description: Applies a plain-English instruction to refine an automation draft
+# Live artifacts / dashboards
+- name: wato_get_live_artifact_primitives
+  description: Returns the live artifact authoring contract and SDK details
+- name: wato_bind_dashboard_view
+  description: Binds approved connector calls to a server-side live view policy

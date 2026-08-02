@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.watolabs.com/docs/sign-up
+notes: >-
+  Plans shown during onboarding at mesh.watolabs.com/onboarding; docs state
+  plans and limits can change and the live values shown during onboarding are
+  authoritative. Free provisions immediately; Personal and Team go through
+  Stripe Checkout before the workspace is provisioned.
+plan_count: 3
+currency: USD
+plans:
+- name: Free
+  price: 0
+  interval: month
+  limits:
+    teams: 1
+    members: 1
+    automations: 3
+    concurrent_agents: 2
+  provisioning: immediate
+- name: Personal
+  price: 40
+  interval: month
+  limits:
+    teams: 1
+    members: 3
+    automations: 25
+    concurrent_agents: 5
+  provisioning: stripe-checkout
+- name: Team
+  price: 200
+  interval: month
+  limits:
+    teams: 10
+    members: 10
+    automations: 100
+    concurrent_agents: 10
+  provisioning: stripe-checkout
+enterprise:
+  notes: >-
+    docs/security describes enterprise options — dedicated cloud instances,
+    customer-controlled cloud, VPC/private network, on-premise, SSO + SCIM,
+    audit logs — via a deployment review process (no published price).
+  contact: https://cal.com/team/wato/wato-demo

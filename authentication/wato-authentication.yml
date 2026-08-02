@@ -1,0 +1,49 @@
+generated: '2026-07-21'
+method: searched
+source: https://mesh.watolabs.com/.well-known/oauth-authorization-server
+docs: https://docs.watolabs.com/docs/connect-clients
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+  - deviceCode
+  bearer_methods:
+  - header
+  notes: >-
+    The Wato MCP gateway (https://mesh.watolabs.com/api/mcp) is an OAuth 2.0
+    protected resource (RFC 9728 metadata published at
+    /.well-known/oauth-protected-resource). Authorization is delegated to a
+    WorkOS AuthKit authorization server (RFC 8414 metadata published), with
+    PKCE (S256), dynamic client registration, refresh tokens, and the device
+    authorization grant. MCP clients (Claude Code, Codex, Cursor) trigger the
+    OAuth flow interactively on connect; login, SSO, and directory sync are
+    handled by WorkOS. Agents never receive raw connector credentials — the
+    gateway executes approved connector tools server-side.
+schemes:
+- name: watoOAuth
+  type: oauth2
+  issuer: https://qualified-tree-19-staging.authkit.app
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://qualified-tree-19-staging.authkit.app/oauth2/authorize
+    tokenUrl: https://qualified-tree-19-staging.authkit.app/oauth2/token
+    pkce_methods:
+    - S256
+  - flow: deviceCode
+    deviceAuthorizationUrl: https://qualified-tree-19-staging.authkit.app/oauth2/device_authorization
+    tokenUrl: https://qualified-tree-19-staging.authkit.app/oauth2/token
+  grant_types_supported:
+  - authorization_code
+  - refresh_token
+  - urn:ietf:params:oauth:grant-type:device_code
+  token_endpoint_auth_methods_supported:
+  - none
+  - client_secret_post
+  - client_secret_basic
+  registration_endpoint: https://qualified-tree-19-staging.authkit.app/oauth2/register
+  introspection_endpoint: https://qualified-tree-19-staging.authkit.app/oauth2/introspection
+  jwks_uri: https://qualified-tree-19-staging.authkit.app/oauth2/jwks
+  sources:
+  - well-known/wato-oauth-authorization-server.json
+  - well-known/wato-oauth-protected-resource.json

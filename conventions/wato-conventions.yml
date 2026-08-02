@@ -1,0 +1,52 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.watolabs.com/docs/reference
+docs:
+- https://docs.watolabs.com/docs/connect-clients
+- https://docs.watolabs.com/docs/common-workflows
+- https://docs.watolabs.com/docs/connectors/tool-execution
+api_style: mcp                    # remote MCP gateway (Streamable HTTP), not REST
+authentication:
+  style: oauth2-bearer
+  bearer_in: header
+  details: authentication/wato-authentication.yml
+tenancy:
+  team_scoping:
+    query_param: team              # ?team=<slug> on the MCP URL
+    header: x-mesh-team            # alternative for header-capable clients
+tool_governance:
+  model: >-
+    Agents discover tools with mesh_search_tools, fetch input schemas with
+    mesh_get_tool_schemas, and execute only workspace/team-approved connector
+    tools via mesh_execute_tool; approval is governed per workspace, team, and
+    role. Credentials stay server-side — the client/browser never sees
+    connector secrets, OAuth tokens, or MCP credentials.
+memory_semantics:
+  model: git-like draft branch + proposal review
+  write_path: mesh_write_memory_file / mesh_patch_memory_file (draft branch only)
+  review_path: mesh_submit_memory_branch_for_review -> proposal -> mesh_merge_memory_proposal
+  read_path: mesh_search_memory / mesh_list_memory_files / mesh_read_memory_file (reviewed main)
+review_lifecycle:
+  memory: [draft, submitted, pending-review, ready-to-merge, merged]
+  memory_conflict_state: has-conflicts
+  skills_and_automations: [draft, submitted-for-review, published]
+tracing:
+  model: every MCP call is recorded as an auditable trace
+  fields: [tool_called, user, team, input, result, timestamp]
+idempotency:
+  supported: false
+  notes: no idempotency-key contract documented
+pagination:
+  notes: not documented as a public convention; tool-level schemas are returned by mesh_get_tool_schemas
+versioning:
+  notes: skills and live artifacts are versioned server-side; no public API versioning scheme documented
+rate_limits:
+  notes: plan limits are expressed as automations and concurrent agents per plan (see plans/wato-plans.yml), not documented request-rate limits
+error_envelope:
+  notes: MCP JSON-RPC error semantics; no provider-specific error catalog published
+cross_links:
+  authentication: authentication/wato-authentication.yml
+  scopes: scopes/wato-scopes.yml
+  lifecycle: lifecycle/wato-lifecycle.yml
+  plans: plans/wato-plans.yml
+  mcp: mcp/wato-mcp.yml

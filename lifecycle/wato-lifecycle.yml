@@ -1,0 +1,37 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.watolabs.com/docs/reference
+notes: >-
+  Wato (YC Spring 2026) publishes no API versioning policy, deprecation policy,
+  changelog, SLA, or public status page yet (status.watolabs.com does not
+  resolve; docs have no changelog page). What it does publish is a governed
+  resource lifecycle for the assets agents work with — reviewed memory, skills,
+  and automations — captured here because it is the operative lifecycle
+  contract for anything built on the MCP gateway.
+versioning:
+  scheme: none-published
+  docs: null
+deprecation:
+  policy_url: null
+  sunset_header: false
+sla:
+  url: null
+status_page: null
+changelog: null
+resource_lifecycles:
+  memory:
+    states: [draft, submitted, pending-review, ready-to-merge, merged]
+    conflict_state: has-conflicts
+    docs: https://docs.watolabs.com/docs/common-workflows
+  skills:
+    states: [draft, proposed, published]
+    versioned: true
+    docs: https://docs.watolabs.com/docs/skills/lifecycle
+  automations:
+    states: [draft, submitted-for-review, live]
+    docs: https://docs.watolabs.com/docs/quickstart-automation
+  live_artifacts:
+    versioned: true
+    access_controlled: true
+    docs: https://docs.watolabs.com/docs/artifacts
+deprecated_operations: []

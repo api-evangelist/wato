@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.watolabs.com/docs/artifacts/live-dashboards
+docs:
+- https://docs.watolabs.com/docs/artifacts
+- https://docs.watolabs.com/docs/artifacts/live-dashboards
+families:
+- family: Live Dashboards (hosted HTML artifacts)
+  description: >-
+    Agent-generated apps, reports, and dashboards published as versioned,
+    access-controlled web pages hosted by Wato that load fresh data at runtime
+    through Wato-approved connectors, with credentials kept server-side — the
+    browser never sees connector secrets, OAuth tokens, or MCP credentials.
+  loader:
+    global: window.WatoDashboard
+    init: const wato = await window.WatoDashboard.init()
+    methods:
+    - name: call
+      example: await wato.call("recentDocs", { query })
+      description: run a pre-bound approved connector call by binding name
+    - name: callTool
+      example: await wato.callTool("notion", "notion-search", { query })
+      description: run an approved connector tool directly
+    - name: callAction
+      example: await wato.callAction("archive-issue", { issueId })
+      description: run a bound action
+    - name: refreshSession
+      description: refresh the session token on expiry
+  declarative_markup:
+    attributes: [data-wato-id, data-wato-call]
+    description: HTML sections declare which connector calls they need; Wato classifies and approves those calls against the team's server-side connector/tool registry
+  policy_binding:
+    tool: wato_bind_dashboard_view
+    behavior: >-
+      Scans static data-wato-call declarations and returns status "active" for
+      approved reads or "review_required" for writes/destructive operations
+      needing admin approval; allowedOrigins whitelists embedding origins.
+  constraints:
+  - live dashboards never run from file:// — HTTP(S) origins required
+  - org/team derived from the hosted URL (or provided explicitly for localhost)

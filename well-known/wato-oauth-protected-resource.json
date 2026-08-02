@@ -1,0 +1,1 @@
+{"resource":"https://mesh.watolabs.com/api/mcp","authorization_servers":["https://qualified-tree-19-staging.authkit.app"],"bearer_methods_supported":["header"],"resource_documentation":"https://mesh.watolabs.com/connectors"}

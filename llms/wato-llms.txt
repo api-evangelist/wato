@@ -1,0 +1,30 @@
+# provenance: generated=2026-07-21 method=searched source=https://docs.watolabs.com/llms.txt
+
+# Documentation
+
+- [Introduction](/docs): Wato is the governed workspace for AI agent memory, MCP access, review workflows, and traceability.
+- [Sign Up & Onboarding](/docs/sign-up): Create a Wato workspace, choose a plan, and get a ready-to-use team in a couple of minutes.
+- [Core Concepts](/docs/core-concepts): The handful of ideas that explain how Wato fits together — workspace, team, memory, skills, connectors, agents, and more.
+- [Getting Started](/docs/getting-started): Your first Wato workflow — create a team, add memory, submit it for review, approve it, and connect an AI client through MCP.
+- [Connecting AI Clients](/docs/connect-clients): Add your team's Wato MCP gateway to Claude Code, Codex, Cursor, or any remote MCP client.
+- [Quickstart: Your First Automation](/docs/quickstart-automation): Build, test, and publish a triggered workflow on the Wato canvas in a few minutes.
+- [Build Automations from a Chat](/docs/build-automations-from-chat): Turn the connector actions an agent took in a conversation into a reusable automation draft — then inspect and edit it, all over MCP.
+- [Common Workflows](/docs/common-workflows): The repeatable workflows Wato is built around — memory, review, MCP access, agent context, artifacts, traces, and directory sync.
+- Artifacts & Dashboards
+  - [Artifacts](/docs/artifacts): Publish agent-generated apps, reports, and dashboards as versioned, access-controlled web pages hosted by Wato.
+  - [Live Dashboards](/docs/artifacts/live-dashboards): Build HTML artifacts that load fresh data at runtime through Wato-approved connectors, with credentials kept server-side.
+- Skills
+  - [Skills](/docs/skills): Reusable, versioned units of capability — a SKILL.md plus optional bundled files — that agents discover and load to follow your team's workflows.
+  - [Authoring Skills](/docs/skills/authoring): Write and edit skills in the Wato UI or over MCP with wato_save_skill_draft.
+  - [Skill Lifecycle](/docs/skills/lifecycle): How a skill moves from draft to proposed to published, with versioning and the permissions each step requires.
+  - [Bundled Files](/docs/skills/bundled-files): Ship scripts, reference docs, and templates alongside a skill so agents load them only when needed.
+- Connectors
+  - [Connectors](/docs/connectors): Integrations that expose approved tools to agents — the catalog, how installation works, and how access is governed.
+  - [Install & Configure](/docs/connectors/install-configure): Authenticate a connector for your team, set any per-connector config, and sync its tools.
+  - [Tool Execution](/docs/connectors/tool-execution): How agents discover and run approved connector tools through the Wato gateway.
+  - [Approval](/docs/connectors/approval): Approve connectors for the workspace or specific teams, and govern which tools each team and role can use.
+  - [Connect Datadog](/docs/connectors/datadog): Set up the Datadog connector with API-key authentication — select your site and enter an API key plus an unscoped application key.
+- [Sync Memory with Notion](/docs/notion-sync): Publish reviewed team memory to Notion, and import Notion pages into Wato memory for review.
+- [Workspace Setup](/docs/workspace-setup): For workspace admins configuring Wato for a pilot — users, teams, directory groups, connectors, permissions, and review visibility.
+- [Reference](/docs/reference): Exact tool names, permissions, lifecycle states, and trace fields for Wato.
+- [Security & Deployment](/docs/security): How Wato controls agent access to memory, tools, and approvals — plus deployment and enterprise options.
