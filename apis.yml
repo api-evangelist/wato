@@ -38,6 +38,17 @@ modified: '2026-07-21'
 tags:
 - Company
 - MCP
+- AI Agents
+- Agent Governance
+- Team Memory
+- Connectors
+- Agent Skills
+- Automation
+- Developer Tools
+- Y Combinator
+tags_raw:
+- Company
+- MCP
 - Model Context Protocol
 - AI Agents
 - Agent Governance
@@ -58,6 +69,9 @@ apis:
   humanURL: https://docs.watolabs.com/docs/connect-clients
   baseURL: https://mesh.watolabs.com/api/mcp
   tags:
+  - MCP
+  - AI Agents
+  tags_raw:
   - MCP
   - Model Context Protocol
   - AI Agents
