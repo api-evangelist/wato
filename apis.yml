@@ -10,6 +10,17 @@ description: >-
   team's reviewed memory and approved tools, never raw credentials, and every
   MCP call is recorded as an auditable trace. Wato is a Y Combinator (Spring
   2026) company based in San Francisco.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
