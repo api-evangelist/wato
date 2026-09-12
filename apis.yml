@@ -111,6 +111,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Website
+  url: https://www.watolabs.com/
 - type: DeveloperPortal
   url: https://docs.watolabs.com/
 - type: Documentation
