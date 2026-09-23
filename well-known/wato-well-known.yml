@@ -1,11 +1,9 @@
-generated: '2026-07-21'
+generated: '2026-09-19'
 method: searched
 source: live probes of /.well-known/ on www.watolabs.com, docs.watolabs.com, mesh.watolabs.com
-notes: >-
-  mesh.watolabs.com is a Next.js app whose router returns a 200 HTML fallback for
-  unknown paths; only responses with a real (JSON/text) content type are recorded
-  as published documents. The OAuth authorization-server metadata (RFC 8414) and
-  OAuth protected-resource metadata (RFC 9728) are genuinely published and back
+notes: mesh.watolabs.com is a Next.js app whose router returns a 200 HTML fallback for unknown paths;
+  only responses with a real (JSON/text) content type are recorded as published documents. The OAuth authorization-server
+  metadata (RFC 8414) and OAuth protected-resource metadata (RFC 9728) are genuinely published and back
   the MCP gateway's OAuth flow (WorkOS AuthKit issuer).
 hosts:
 - host: https://mesh.watolabs.com
@@ -71,3 +69,23 @@ hosts:
     content_type: text/plain
     file: ../llms/wato-llms.txt
     note: not under /.well-known/ but part of the published discovery surface
+- host: https://qualified-tree-19-staging.authkit.app
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: wato-qualified-tree-19-staging-oauth-authorization-server.json
+    bytes: 1016
+  path_echo_control: passed
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://qualified-tree-19-staging.authkit.app
+    path: /.well-known/oauth-authorization-server
+    file: wato-qualified-tree-19-staging-oauth-authorization-server.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
+note: 'MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s
+  primary hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed
+  and were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'
