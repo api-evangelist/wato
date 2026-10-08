@@ -42,3 +42,29 @@ enterprise:
     customer-controlled cloud, VPC/private network, on-premise, SSO + SCIM,
     audit logs — via a deployment review process (no published price).
   contact: https://cal.com/team/wato/wato-demo
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - subscription
+  units: []
+  plans:
+  - name: Free
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Personal
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Team
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
