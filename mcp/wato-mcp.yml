@@ -88,3 +88,17 @@ deployment:
   probe: gated
   checked: '2026-08-12'
   source: catalog MCP census
+rfc9728:
+  endpoint: https://mesh.watolabs.com/api/mcp
+  metadata_url: https://mesh.watolabs.com/.well-known/oauth-protected-resource
+  discovered_via: WWW-Authenticate resource_metadata on an anonymous POST initialize
+  fetched: '2026-09-25'
+  http_status: 200
+  content_type: application/json
+  document:
+    resource: https://mesh.watolabs.com/api/mcp
+    authorization_servers:
+    - https://qualified-tree-19-staging.authkit.app
+    bearer_methods_supported:
+    - header
+    resource_documentation: https://mesh.watolabs.com/connectors
