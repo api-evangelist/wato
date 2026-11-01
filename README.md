@@ -64,6 +64,111 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Wato is a company surfaced as a portfolio company of y-combinator and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Wato is the control point for AI agents at work — a governed, shared AI workspace that gives teams reviewed memory, approved MCP connectors and tools, versioned skills, cloud agent sessions, triggered automations, live artifacts and dashboards, and full tool-call tracing, all exposed to Claude Code, Codex, Cursor, and any MCP-compatible client through a single remote MCP gateway. Login, SSO, and directory sync are handled by WorkOS; agents only ever see a team's reviewed memory and approved tools, never raw credentials, and every MCP call is recorded as an auditable trace. Wato is a Y Combinator (Spring 2026) company based in San Francisco.
 
-Backed by: y-combinator
+**Areas:** Company · MCP · AI Agents · Agent Governance · Team Memory · Connectors · Agent Skills · Automation · Developer Tools · Y Combinator
+
+## Wato on APIs.io
+
+Everything profiled for Wato is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/wato/](https://apis.io/providers/wato/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Wato MCP Gateway](https://apis.io/apis/wato/wato-mcp-gateway/) — Wato exposes each team's reviewed memory and approved connector tools through a single remote MCP (Model Context Protocol) gateway over Streamable HTTP with…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [wato](https://apis.io/servers/wato/wato/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Wato Authentication](https://apis.io/security/wato/wato-authentication/)
+- [Wato Domain Security](https://apis.io/security/wato/wato-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Wato Scopes](https://apis.io/scopes/wato/wato-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Wato Plans](https://apis.io/plans/wato/wato-plans/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.watolabs.com/)
+- [Documentation](https://docs.watolabs.com/docs)
+- [Getting started](https://docs.watolabs.com/docs/getting-started)
+- [API reference](https://docs.watolabs.com/docs/reference)
+- [Pricing](https://docs.watolabs.com/docs/sign-up)
+- [Sign up](https://mesh.watolabs.com/onboarding)
+- [Blog](https://blog.watolabs.com)
+- [Terms of service](https://www.watolabs.com/tos)
+
+## API Evangelist rating
+
+**Kin Score 33.0** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 5.3 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 54.2 |
+| Access clarity | 52.6 |
+
+**Agent readiness 28.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 30.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/wato/](https://apis.io/providers/wato/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Wato: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/wato/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
